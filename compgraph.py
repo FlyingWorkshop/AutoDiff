@@ -16,14 +16,6 @@ class Variable:
         self._G.add_node(self._id)
         self._labels = {self._id: self.value}
 
-        # self.id = next(Variable.node_counter)
-        # self.labels = {self.id: value}
-        # self.G = nx.MultiDiGraph()
-        # for inp in inputs or []:
-        #     assert isinstance(inp, Variable)
-        #     self.G = nx.compose(self.G, inp.G)
-        #     utils.new_add_edge(self.G, inp.id, self.id)
-        #     self.labels.update(inp.labels)
     def graph(self):
         pos = nx.spring_layout(self._G)
         nx.draw_networkx_labels(self._G, pos, self._labels)
@@ -43,3 +35,19 @@ class Variable:
 
     def __add__(self, other):
         return self.compose("+", other)
+
+
+def sqrt(x: Variable):
+    pass
+
+
+def ln(x: Variable):
+    pass
+
+
+def cos(x: Variable):
+    pass
+
+
+def sin(x: Variable):
+    pass
