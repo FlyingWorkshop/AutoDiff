@@ -17,37 +17,59 @@ class Variable:
         self._labels = {self._id: self.value}
 
     def graph(self):
-        pos = nx.spring_layout(self._G)
+        for layer, nodes in enumerate(nx.topological_generations(self._G)):
+            for node in nodes:
+                self._G.nodes[node]["layer"] = layer
+
+        pos = nx.multipartite_layout(self._G, subset_key="layer")
+
+        # pos = nx.spring_layout(self._G)
         nx.draw_networkx_labels(self._G, pos, self._labels)
         for edge in self._G.edges(data=True):
             nx.draw_networkx_edges(self._G, pos, edgelist=[(edge[0], edge[1])],
                                    connectionstyle=f'arc3, rad = {edge[2]["rad"]}')
 
+
     def compose(self, value, other):
-        id = next(Variable.node_counter)
-        G = nx.compose(self._G, other._G)
-        utils.new_add_edge(G, self._id, id)
-        utils.new_add_edge(G, other._id, id)
-        var = Variable(value, id, G)
+        var = Variable(value, G=nx.compose(self._G, other._G))
+        utils.new_add_edge(var._G, self._id, var._id)
+        utils.new_add_edge(var._G, other._id, var._id)
         var._labels.update(self._labels)
         var._labels.update(other._labels)
+        return var
+
+    def compute(self, value):
+        var = Variable(value, G=self._G)
+        utils.new_add_edge(self._G, self._id, var._id)
+        var._labels.update(self._labels)
         return var
 
     def __add__(self, other):
         return self.compose("+", other)
 
+    def __sub__(self, other):
+        return self.compose("-", other)
+
+    def __mul__(self, other):
+        return self.compose("*", other)
+
+    def __truediv__(self, other):
+        return self.compose("/", other)
+
+    def __pow__(self, power, modulo=None):
+        return self.compose("**", other)
 
 def sqrt(x: Variable):
-    pass
+    return x.compute("√")
 
 
 def ln(x: Variable):
-    pass
+    return x.compute("ln")
 
 
 def cos(x: Variable):
-    pass
+    return x.compute("cos")
 
 
 def sin(x: Variable):
-    pass
+    return x.compute("sin")
