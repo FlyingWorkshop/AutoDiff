@@ -11,7 +11,7 @@ ADD plot and description
 
 #### Aside: Computational Graphs
 
-The first milestone I set for myself in the project was creating a visualizer for a computational graph. Here we see the computational graph (CG) for the equation $\sqrt(p + p + q) / 3 + \ln(p(pq)) + 3$.
+The first milestone I set for myself in the project was creating a visualizer for a computational graph. Here we see the computational graph (CG) for the equation $\sqrt{p + p + q} / 3 + \ln(p(pq)) + 3$.
 
 ```python
 import compgraph as cg
