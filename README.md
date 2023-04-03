@@ -9,9 +9,9 @@ ADD plot and description
 
 ### Operator Overloading
 
-#### Aside: Custom Computational Graphing API 
+#### Aside: Computational Graphs
 
-The first milestone I set for myself in the project was creating a visualizer for a computational graph. Here we see the computational graph (CG) for the equation $\sqrt{p + p + q} / 3 + \ln(p(pq)) + 3$.
+I implemented a custom computational graph engine as a sidequest. Here we see the computational graph (CG) for the equation $\sqrt{p + p + q} / 3 + \ln(p(pq)) + 3$. The graph is produced by overwriting python operators for a custom class that maintains a topologically-ordered directed multigraph.
 
 ```python
 import compgraph as cg
@@ -25,6 +25,7 @@ expression.graph()
 <p align="center">
   <img src="readme_images/cg_output.png"  alt="Computational Graph Example"/>
 </p>
+
 
 
 ### Compiler Stuff
