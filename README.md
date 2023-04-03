@@ -9,7 +9,7 @@ ADD plot and description
 
 ### Operator Overloading
 
-#### Aside: Computational Graphs
+#### Aside: Custom Computational Graphing API 
 
 The first milestone I set for myself in the project was creating a visualizer for a computational graph. Here we see the computational graph (CG) for the equation $\sqrt{p + p + q} / 3 + \ln(p(pq)) + 3$.
 
