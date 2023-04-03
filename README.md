@@ -7,12 +7,11 @@ The goal of this project is to be a stepping stone toward building a transformer
 
 Recall the limit definition of the derivative: $f'(x) = \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}$. It follows that we can approximate the derivative if we fix a small $h$. While this definition is perfect in theory, in practice dividing by a small $h$ on a computer leads to numerical errors and dividing by a large $h$ gives a bad approximation.
 
-Below, we can see how the error changes with $h$. In this example, I used the sigmoid function and it's derivative.
+Below, we can see how the error changes with $h$. In this example, I used the sigmoid function and its derivative.
 
 <p align="center">
   <img src="readme_images/numerical_diff_error.png"  alt="Computational Graph Example"/>
 </p>
-
 
 ### Numerical Errors: [Rounding](https://en.wikipedia.org/wiki/Round-off_error) and [Truncation](https://en.wikipedia.org/wiki/Truncation_error)
 
