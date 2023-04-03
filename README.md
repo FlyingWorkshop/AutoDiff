@@ -23,7 +23,7 @@ expression = cg.sqrt(p + p + q) / k + cg.ln(p * (p * q)) + k
 expression.graph()
 ```
 <p align="center">
-  <img src="cg_output.png"  alt="Computational Graph Example"/>
+  <img src="readme_images/cg_output.png"  alt="Computational Graph Example"/>
 </p>
 
 
