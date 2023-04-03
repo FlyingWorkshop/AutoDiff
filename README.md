@@ -11,6 +11,8 @@ Recall the limit definition of the derivative: $f'(x) = \lim_{h \to 0}\frac{f(x+
   <img src="readme_images/numerical_diff_error.png"  alt="Computational Graph Example"/>
 </p>
 
+Below, we can see how the error changes with $h$. In this example, I used the sigmoid function and it's derivative.
+
 ### Numerical Errors: [Rounding](https://en.wikipedia.org/wiki/Round-off_error) and [Truncation](https://en.wikipedia.org/wiki/Truncation_error)
 
 **Rounding Errors**: computers are limited in how they represent numbers
