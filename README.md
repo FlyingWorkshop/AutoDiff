@@ -1,9 +1,23 @@
 # AutoDiff
-Exploring automatic differentiation!
 
-## Numerical Differentiation
+The goal of this project is to be a stepping stone toward building a transformer from scratch (i.e., without TensorFlow or PyTorch). In order to circumvent, both APIs, we have to understand what they are used for. Both libraries help streamline the construction of neural networks by making layers, regularizers, and activations all seamlessly integrate together with fully-optimized library code. One of the particular advantages of using these libraries is not having to compute the gradient of loss function by hand. Before these libraries became popular (and although it was common in other fields outside of machine learning), it was common for researchers to painstakingly derive analytic solutions or approximations to their loss functions by hand before coding their models. Automatic differentiation (AD) alleviates the need to compute these tiresome derivatives using some clever techniques that we explore below, but before we can understand _what AD is_, we must understand what it _isn't_ and what alternatives it supplants.
 
-ADD plot and description
+## Numerical Errors: [Rounding](https://en.wikipedia.org/wiki/Round-off_error) and [Truncation](https://en.wikipedia.org/wiki/Truncation_error)
+
+Recall the limit definition of the derivative: $f'(x) = \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}$. It follows that we can approximate the derivative if we fix a small $h$. While this definition is perfect in theory, in practice dividing by a small $h$ on a computer leads to numerical errors and dividing by a large $h$ gives a bad approximation.
+
+<p align="center">
+  <img src="readme_images/numerical_diff_error.png"  alt="Computational Graph Example"/>
+</p>
+
+**Rounding Errors**: computers are limited in how they represent numbers
+* _magnitude_: there are upper and lower bounds on what numbers computers can represent
+* _precision_: not all numbers can be represented exactly
+
+**Truncation Errors**: errors that result from the use of an approximation rather than an exact expression
+
+
+(Source: [MAE 4020/5020](https://web.engr.oregonstate.edu/~webbky/MAE4020_5020_files/Section%204%20Roundoff%20and%20Truncation%20Error.pdf))
 
 ## Forward Mode
 
