@@ -27,7 +27,7 @@ class Variable:
 
 
     def compose(self, value, other):
-        var = Variable(value, G=nx.compose(self._G, other._G))
+        var = Variable(value, G=nx.compose(self._G, other.G))
         utils.new_add_edge(var._G, self._id, var._id)
         utils.new_add_edge(var._G, other._id, var._id)
         var._labels.update(self._labels)
